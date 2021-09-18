@@ -1,0 +1,2 @@
+# Salary-Prediction
+Salary Prediction of job listing to job searchers determine whether a job listing offers a reasonable salary based on the requirements and distinct characteristics compared to other jobs with similar requirements and characteristics. Additionally, this model offers applicants leverage when negotiating salaries if they decide to apply to listings with seemingly unreasonable salaries.
