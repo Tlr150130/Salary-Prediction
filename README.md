@@ -126,8 +126,9 @@ Industry and Degree Average |	1125.587248	 | 4.999431
 
 ----
 ## [Feature Engineering](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/notebooks/03-Feature_Engineering.ipynb)
-* one-hot encoding
-	* Degree should be one hot encoded
+#### one-hot encoding
+> Categorical features are encoded via one-hot encoding because there are no hierachial levels in the categorical features. The degree feature tested 
+
 * standard Scaling
 
 ----
