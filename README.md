@@ -48,7 +48,7 @@ $ tree
 > Note: Only the notebooks folder is necessary for running the code through the notebooks. All helper files and data are placed in the notebook folder.
 > 
 ----
-## [Data Wrangling](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/00-Getting_Started.ipynb)
+## [Data Wrangling](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/notebooks/00-Getting_Started.ipynb)
 #### The historical data is stored as a csv files:
 >* **train_salaries:** Each row has an ID and associated salary value.
 >* **train_features:** Each row represents metadata for an individual job posting with its associated ID
@@ -114,7 +114,7 @@ $ tree
 #### Best Preforming Baseline
 > The simple linear regression vastly outperformed the other naive baseline models. This suggests that a model will improve any average guess by a large margin. In conclusion, the MSE benchmark to surpass is 399.131258.
 
-<p align="center">
+<div align="center">
   
 Estimator	| Average MSE	| Standard Deviation MSE
 ----------|-------------|------------------------
@@ -122,35 +122,64 @@ Simple Linear Regression	| 399.131258	| 2.084684
 Job Type Average	| 963.944600	| 3.304819
 Industry and Degree Average |	1125.587248	 | 4.999431
   
-</p>
+</div>
 
 ----
 ## [Feature Engineering](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/notebooks/03-Feature_Engineering.ipynb)
-#### one-hot encoding
-> Categorical features are encoded via one-hot encoding because there are no hierachial levels in the categorical features. The degree feature tested 
+#### Standard Scaling
+> All numerical features were subjected to standard scaling for linear models. Standard sclaing was omitted from the tree-based models since the cost function of tree-based models are not reliant on distance measurements. Furthermore, the omission of standard scaling improves interpreability of the model.
 
-* standard Scaling
+#### One-Hot Encoding
+> Categorical features are encoded via one-hot encoding because there are no hierachial levels in the categorical features. The degree feature tested to find the optimal feature trandormation and the one-hot-encoder performed the best.
+
+<p align="center">
+  <img src="https://github.com/Tlr150130/Salary-Prediction/blob/main/README_images/Degree%20Encoding%20Results.png" width="800">
+</p>
 
 ----
 ## [Model Development](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/notebooks/04-Train_models.ipynb)
-#### Proposed Models:
-<u>Linear Model:</u> 
+**Linear Model:**
 * Linear Regression
 * Polynomial Linear Regression 
 * Ridge Regression
 * Polynomial Ridge Regression 
 
-<u> Tree-based Model: </u>
+**Tree-based Model:**
 * Random-Forest Model
 * XGBoost Regresssor
 
-* Results
-* image of results
+#### Results
+> Out of all the models the linear regression and ridge regression with polynomial feature transformation performed the best. Since the linear regression has a faster training speed, we will assume that this is the optimal model out of the tested models.
+
+<p align="center">
+  <img src="https://github.com/Tlr150130/Salary-Prediction/blob/main/README_images/Model_MSE_results.png" width="800">
+</p>
+
+#### Feature Importance
+> The most impactful features are presented below. The 2 most important features were whether the job listing was for a janitor or a junior position. The least impactful features came from the different majors as they had a smaller influence on the salary.
+
+<p align="center">
+  <img src="https://github.com/Tlr150130/Salary-Prediction/blob/main/README_images/XGBOOST%20FEATURE%20IMPORTANCE.png" width="800">
+</p>
 
 ----
 ## [Model Deployment](https://nbviewer.jupyter.org/github/Tlr150130/Salary-Prediction/blob/main/notebooks/05-Model_Deployment.ipynb)
-* For the model be useful, the model needs to be immediately ready to be put into production. A function pipeline was created to take raw inputs with the same format as the training data, process the data, and generate predictions using the best model.
-* creat table with 
+#### Prediction Pipeline Function
+> For the model be useful, the model needs to be immediately ready to be put into production. A function pipeline was created to take raw inputs with the same format as the training data, process the data, and generate predictions using the best model.
+
+#### Predictions
+
+<div align="center">
+  
+jobId	| predicted_salary	
+----------|-------------
+JOB1362685407687| 111.398280
+JOB1362685407688| 92.827118
+JOB1362685407689| 183.198284
+JOB1362685407690| 103.900301
+JOB1362685407691| 116.060492
+ 
+</div>
 
 ----
 ## Summary
