@@ -182,6 +182,13 @@ JOB1362685407691| 116.060492
 </div>
 
 ----
+## Improvements
+> 1. Testing other algorithms such as Support Vector Machine Polynomial Regressors could be used to lower the MSE.
+> 2. Additional regularization parameters could be used to lower the MSE.
+> 2. Outliers for salary could be tested and weighted to not have as much of an imact on the model.
+> 3. Other feature transformations could be implemented to improve normality or reduce multicollinearity.
+
+----
 ## Summary
 > A second order polynomial linear regression model produced the most accurate predictions on salary based on the job listing characteristics and requirements. The model obtained a mean squared error (MSE) of 354 which improved the MSE of the baseline linear model by 11.5%. The best model and associated pipeline is stored as a pickle file and is utilized directly by the deployment function for quick implementation into production.
 
